@@ -110,7 +110,7 @@ async def update(event, repo, ups_rem, ac_br):
     return
 
 
-@register(outgoing=True, pattern=r"^.update(?: |$)(now|deploy)?")
+@register(outgoing=True, pattern=r"^.baru(?: |$)(sekarang|sekarang)?")
 async def upstream(event):
     """For .update command, check if the bot is up to date, update if specified"""
     await event.edit("`Checking for updates, please wait....`")
@@ -131,7 +131,7 @@ async def upstream(event):
         if conf is None:
             return await event.edit(
                 f"`Unfortunately, the directory {error} does not seem to be a git repository."
-                "\nBut we can fix that by force updating the userbot using .update now.`"
+                "\nBut we can fix that by force updating the userbot using .update sekarang.`"
             )
         repo = Repo.init()
         origin = repo.create_remote('upstream', off_repo)
@@ -179,26 +179,26 @@ async def upstream(event):
             remove("output.txt")
         else:
             await event.edit(changelog_str)
-        return await event.respond('do "`.update now` or `.update deploy`" to update')
+        return await event.respond('do "`.update sekarang` or `.update deploy1`" to update')
 
     if force_update:
         await event.edit(
             '`Force-Syncing to latest stable userbot code, please wait...`')
     else:
         await event.edit('`Updating userbot, please wait....`')
-    if conf == "now":
+    if conf == "sekarang":
         await update(event, repo, ups_rem, ac_br)
-    elif conf == "deploy":
+    elif conf == "deploy1":
         await deploy(event, repo, ups_rem, ac_br, txt)
     return
 
 
 CMD_HELP.update({
     "update":
-    "`.update`"
+    "`.baru`"
     "\nUsage: Checks if the main userbot repository has any updates and shows a changelog if so."
-    "\n\n`.update now`"
+    "\n\n`.baru sekarang`"
     "\nUsage: Update your userbot, if there are any updates in your userbot repository."
-    "\n\n`.update deploy`"
+    "\n\n`.baru deploy1`"
     "\nUsage: Deploy your userbot at heroku, if there are any updates in your userbot repository."
 })
