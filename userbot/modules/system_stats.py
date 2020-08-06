@@ -194,7 +194,7 @@ async def pipcheck(pip):
         await pip.edit("`Use .help pip to see an example`")
 
 
-@register(outgoing=True, pattern=r"^\.(?:alive|on)\s?(.)?")
+@register(outgoing=True, pattern=r"^\.(?:hidup|on)\s?(.)?")
 async def amireallyalive(alive):
     """For .alive command, check if the bot is running."""
     output = ("`At your services...`\n"
@@ -248,7 +248,7 @@ CMD_HELP.update({
     "\nUsage: Does a search of pip modules(s)."})
 CMD_HELP.update({
     "on":
-    "`.alive` | `.on`"
+    "`.hidup` | `.on`"
     "\nUsage: See wether your bot is working or not."
     "\n\n`.aliveu` <text>"
     "\nUsage: Changes the 'user' in alive to the text you want."
