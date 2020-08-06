@@ -11,7 +11,7 @@ from userbot.utils import humanbytes
 MAX_MESSAGE_SIZE_LIMIT = 4095
 
 
-@register(outgoing=True, pattern=r"^\.ls ?(.*)")
+@register(outgoing=True, pattern=r"^\.folder ?(.*)")
 async def lst(event):
     if event.fwd_from:
         return
@@ -112,6 +112,6 @@ async def lst(event):
 
 CMD_HELP.update({
     "file":
-    "`.ls` <directory>"
+    "`.folder` <directory>"
     "\nUsage: Get list file inside directory."
 })
