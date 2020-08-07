@@ -13,7 +13,7 @@ from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP
 from userbot.events import register
 
 
-@register(outgoing=True, pattern="^.purge$")
+@register(outgoing=True, pattern="^.bersih$")
 async def fastpurger(purg):
     """For .purge command, purge all messages starting from the reply."""
     chat = await purg.get_input_chat()
@@ -47,7 +47,7 @@ async def fastpurger(purg):
     await done.delete()
 
 
-@register(outgoing=True, pattern="^.purgeme")
+@register(outgoing=True, pattern="^.bersihsaya")
 async def purgeme(delme):
     """For .purgeme, delete x count of your latest message."""
     message = delme.text
@@ -74,7 +74,7 @@ async def purgeme(delme):
     await smsg.delete()
 
 
-@register(outgoing=True, pattern="^.del$")
+@register(outgoing=True, pattern="^.delete$")
 async def delete_it(delme):
     """For .del command, delete the replied message."""
     msg_src = await delme.get_reply_message()
@@ -127,20 +127,20 @@ async def selfdestruct(destroy):
 
 CMD_HELP.update({
     "purge":
-    "`.purge`"
+    "`.bersih`"
     "nUsage: Purges all messages starting from the reply."
 })
 
 CMD_HELP.update({
     "purgeme":
-    "`.purgeme` <x>"
+    "`.bersihsaya` <x>"
     "\nUsage: Deletes x amount of your latest messages."
     "\nUsage: Deletes x amount of your latest messages."
 })
 
 CMD_HELP.update({
     "del":
-    "`.del`"
+    "`.delete`"
     "\nUsage: Deletes the message you replied to."
 })
 
