@@ -442,7 +442,7 @@ async def lang(value):
             f"`Language for {scraper} changed to {LANG.title()}.`")
 
 
-@register(outgoing=True, pattern=r"^\.yt (\d*) *(.*)")
+@register(outgoing=True, pattern=r"^\.youtube (\d*) *(.*)")
 async def yt_search(video_q):
     """For .yt command, do a YouTube search from Telegram."""
     if video_q.pattern_match.group(1) != "":
@@ -483,7 +483,7 @@ async def yt_search(video_q):
     await video_q.edit(output, link_preview=False)
 
 
-@register(outgoing=True, pattern=r".rip(audio|video) (.*)")
+@register(outgoing=True, pattern=r".yt(audio|video) (.*)")
 async def download_video(v_url):
     """For .rip command, download media from YouTube and many other sites."""
     url = v_url.pattern_match.group(2)
@@ -656,6 +656,6 @@ CMD_HELP.update(
     {"imdb": "`.imdb` <movie-name>\nShows movie info and other stuff."})
 CMD_HELP.update({
     'rip':
-    '`.ripaudio` <url> or ripvideo <url>\
+    '`.yt` <url> or ytvideo <url>\
         \nUsage: Download videos and songs from YouTube (and [many other sites](https://ytdl-org.github.io/youtube-dl/supportedsites.html)).'
 })
